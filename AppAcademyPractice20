@@ -1,0 +1,22 @@
+# Write a method that takes in a string and returns the number of
+# letters that appear more than once in the string. You may assume
+# the string contains only lowercase letters. Count the number of
+# letters that repeat, not the number of times they repeat in the
+# string.
+#
+# Difficulty: hard.
+
+def num_repeats(x):
+  list1 = list(x)
+  list2 = []
+  for n in list1:
+      if n not in list2:
+        list2.append(n)
+        continue
+      else:
+        continue
+  print list2
+  print len(list2)
+  
+num_repeats("nvndoiwoerwonoroenrgoeuhjpqwrfpg")
+num_repeats("skfjnrpwoihrgojnkvjnerforhojsdnfll")
