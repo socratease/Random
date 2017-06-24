@@ -1,0 +1,80 @@
+"""
+Write a function lucky_sevens?(numbers), which takes in an array of 
+integers and returns true if any three consecutive elements sum to 7
+
+def lucky_sevens(numbers):
+  strlist = list(str(numbers))
+  numlist = []
+  print strlist
+  for x in range(0,len(strlist)-2):
+    numlist.append(int(x))
+  print numlist
+  for x in numlist:
+    if sum(numlist[x:x + 2]) is 7:
+      print "true"
+    else:
+      continue
+
+lucky_sevens(12345567)
+lucky_sevens(951334069)
+"""
+def lucky_sevens2(list):
+  for x in list:
+    if sum(list[x:x + 2]) is 7:
+      print "true"
+      break
+    else:
+      continue
+
+lucky_sevens2([1,2,3,4,5,5,6,7])
+lucky_sevens2([9,5,1,3,3,4,0,6,9])
+lucky_sevens2([1,3,5,7,89,0,8,8])
+
+"""
+Write a function oddball_sum(numbers), 
+which takes in an array of integers and returns 
+the sum of all the odd elements.
+
+
+def oddball_sum(numbers):
+  strlist = list(str(numbers))
+  numlist = []
+  oddlist = []
+  for i in strlist:
+    numlist.append(int(i))
+  for i in numlist:
+    if i % 2 != 0:
+      oddlist.append(i)
+  print sum(oddlist)
+  
+oddball_sum(1234)
+"""
+
+def oddball_sum2(list):
+  oddlist = []
+  for i in list:
+    if i % 2 != 0:
+      oddlist.append(i)
+  print sum(oddlist)
+  
+oddball_sum2([1,2,3,4])
+oddball_sum2([1,2,2,3,3,4,4,5])
+
+"""
+Write a function disemvowel(string), which takes in a string, 
+and returns that string with all the vowels removed. 
+Treat “y” as a consonant.
+"""
+
+def disemvowel(string):
+  list1 = list(string)
+  vowellist = ['a', 'e', 'i', 'o', 'u']
+  newlist = []
+  for i in list1:
+    if i not in vowellist:
+      newlist.append(i)
+    else: 
+      continue
+  print ''.join(newlist)
+  
+disemvowel("christopher is the dumbest cool cat")
