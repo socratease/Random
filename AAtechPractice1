@@ -1,0 +1,73 @@
+# Write a function, `nearest_larger(arr, i)` which takes an array and an
+# index.  The function should return another index, `j`: this should
+# satisfy:
+#
+# (a) `arr[i] < arr[j]`, AND
+# (b) there is no `j2` closer to `i` than `j` where `arr[i] < arr[j2]`.
+#
+# In case of ties (see example below), choose the earliest (left-most)
+# of the two indices. If no number in `arr` is larger than `arr[i]`,
+# return `nil`.
+#
+# Difficulty: 2/5
+"""
+puts("Tests for #nearest_larger")
+puts("===============================================")
+    puts "nearest_larger([2,3,4,8], 2) == 3: "  + (nearest_larger([2,3,4,8], 2) == 3).to_s
+    puts "nearest_larger([2,8,4,3], 2) == 1: "  + (nearest_larger([2,8,4,3], 2) == 1).to_s
+    puts "nearest_larger([2,6,4,8], 2) == 1: "  + (nearest_larger([2,6,4,8], 2) == 1).to_s
+    puts "nearest_larger([2,6,4,6], 2) == 1: "  + (nearest_larger([2,6,4,6], 2) == 1).to_s
+    puts "nearest_larger([8,2,4,3], 2) == 0: "  + (nearest_larger([8,2,4,3], 2) == 0).to_s
+    puts "nearest_larger([2,4,3,8], 1) == 3: "  + (nearest_larger([2,4,3,8], 1) == 3).to_s
+    puts "nearest_larger([2, 6, 4, 8], 3) == nil: "+ (nearest_larger([2, 6, 4, 8], 3) == nil).to_s
+    puts "nearest_larger([2, 6, 9, 4, 8], 3) == 2: "+ (nearest_larger([2, 6, 9, 4, 8], 3) == 2).to_s
+puts("===============================================")
+
+  
+
+loop through list, check each number, then make a variable that number
+"""
+
+def nearest_larger(arr, i):
+  target = arr[i]
+  closest = 99999999999999999999999999
+  closestindex = None
+  for n in arr:
+    if n > target and n < closest:
+      closestindex = arr.index(n)
+    else:
+      continue
+  print closestindex
+  
+nearest_larger([2,8,4,3], 2)
+
+"""
+or
+copy list, sort it, find the closest value, and then return that.
+"""
+"""
+
+def nearest_larger(arr, i):
+    arrcopy = arr[:]
+    arrcopy.sort()
+    target = arr[i]
+    targetindex = arr.index(target)
+    jvalue  = False
+    counter = 1
+    for target in arrcopy:
+      try:
+        if arrcopy[targetindex + counter] == i:
+          counter += 1
+          continue
+        else:
+          jvalue = arrcopy[targetindex + counter]
+          break
+      except IndexError:
+	      jvalue = "nil"
+    if jvalue is "nil":
+	    return jvalue
+    else:
+      return arr.index(jvalue)
+      
+nearest_larger([2,3,4,8], 2)
+"""
